@@ -371,10 +371,11 @@ body{font-family:'Outfit',sans-serif;background:var(--bg-primary);color:var(--te
 .section-hdr{font-size:22px;gap:8px}.section-sub{font-size:13px}
 /* Mobile: search dropdown */
 .search-dropdown{max-height:260px;border-radius:8px}.search-dd-code{min-width:60px;font-size:12px}.search-dd-badge{display:none}
-/* Mobile: shelf tabs — left-align so first tab isn't clipped */
-.shelf-tabs{justify-content:flex-start;padding:4px 16px 20px}
-/* Mobile: search filters scroll */
-.search-filters{justify-content:flex-start;padding:8px 12px;gap:6px}
+/* Mobile: shelf tabs — wrap so all are visible */
+.shelf-tabs{flex-wrap:wrap;justify-content:center;padding:4px 16px 16px;overflow-x:visible}
+.shelf-tab{padding:6px 12px;font-size:12px}
+/* Mobile: search filters — wrap so all are visible */
+.search-filters{flex-wrap:wrap;justify-content:center;padding:8px 12px;gap:6px;overflow-x:visible}
 /* Mobile: search badge hide when narrow */
 .search-badge{display:none!important}
 }
