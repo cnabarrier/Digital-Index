@@ -52,6 +52,14 @@
 
 
 
+\## Deployment
+
+\- The project is hosted on GitHub Pages at: https://cnabarrier.github.io/Digital-Index/
+\- GitHub repo: https://github.com/cnabarrier/Digital-Index
+\- Changes are **local only** until explicitly pushed. Do NOT auto-commit or auto-push.
+\- Only commit and push when the user explicitly asks (e.g. "push", "deploy", "update github").
+\- When asked to push: stage changed files, commit with a clear message, and `git push origin master`.
+
 \## After tool use
 
 \- Provide a quick summary of what you did and why.

@@ -5,7 +5,17 @@ function toggleTheme(){
   document.getElementById('themeLabel').textContent = t==='dark'?'☀️':'🌙';
   localStorage.setItem('avTheme',t);
 }
-(function(){const s=localStorage.getItem('avTheme');if(s){document.documentElement.setAttribute('data-theme',s);document.getElementById('themeLabel').textContent=s==='dark'?'☀️':'🌙';}})();
+(function(){
+  let t=localStorage.getItem('avTheme');
+  if(!t){
+    // No saved preference — use OS preference, then fall back to time of day
+    if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches){t='light';}
+    else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){t='dark';}
+    else{var h=new Date().getHours();t=(h>=6&&h<18)?'light':'dark';}
+  }
+  document.documentElement.setAttribute('data-theme',t);
+  document.getElementById('themeLabel').textContent=t==='dark'?'☀️':'🌙';
+})();
 
 // Zulu Clock
 function updateZulu(){
