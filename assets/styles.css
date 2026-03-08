@@ -378,7 +378,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg-primary);color:var(--te
 /* Mobile: search badge hide when narrow */
 .search-badge{display:none!important}
 }
-@media(max-width:480px){.topbar{padding:0 10px;gap:6px}.topbar-logo{font-size:13px}.theme-toggle,.theme-label{display:none}.shelf-book{width:76px;height:108px}.shelf-book-title{font-size:10px}.shelf-book-tag{display:none}.shelf-book-cover{padding:8px 6px 8px 8px}.book-viewer-book{width:94vw;max-width:420px}
+@media(max-width:480px){.topbar{padding:0 10px;gap:6px}.topbar-logo{font-size:13px}.theme-label{display:none}.shelf-book{width:76px;height:108px}.shelf-book-title{font-size:10px}.shelf-book-tag{display:none}.shelf-book-cover{padding:8px 6px 8px 8px}.book-viewer-book{width:94vw;max-width:420px}
 /* Small mobile: tighter spacing */
 .section-view{padding:20px 14px 48px}.section-hdr{font-size:20px}.section-back{font-size:13px;padding:8px 14px 8px 12px}
 .search-input{font-size:13px;padding:9px 36px 9px 34px}.search-prefix{left:10px;font-size:13px}.search-clear{right:8px}
