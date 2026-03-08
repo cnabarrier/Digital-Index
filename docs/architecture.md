@@ -3,9 +3,13 @@
 ## File structure
 
 ```
-/index.html            HTML structure only (282 lines)
-/assets/styles.css     All CSS — themes, layout, components (236 lines)
-/assets/app.js         All JS — interactions, search, state (283 lines)
+/index.html            HTML structure (~400 lines)
+/assets/styles.css     All CSS — themes, layout, components, responsive (~400 lines)
+/assets/app.js         All JS — interactions, search, state (~700 lines)
+/docs/architecture.md  This file
+/tasks/todo.md         Planning checklist
+/.claude/              Project rules + skills
+/.gitignore            Excludes backup files + local settings
 ```
 
 No build tools, frameworks, or npm. Open `index.html` by double-clicking.
@@ -14,7 +18,9 @@ No build tools, frameworks, or npm. Open `index.html` by double-clicking.
 
 ### Theming
 - CSS custom properties on `[data-theme="dark"|"light"]` selectors in `styles.css`.
-- `toggleTheme()` in `app.js` swaps the `data-theme` attribute and persists to `localStorage` (`avTheme` key).
+- **Auto-detect on first visit**: OS `prefers-color-scheme` > time-of-day fallback (6am–6pm = light, else dark).
+- **Manual toggle**: `toggleTheme()` swaps the `data-theme` attribute and persists to `localStorage` (`avTheme` key). Saved preference is used on return visits.
+- Theme toggle switch is visible on all screen sizes (only the emoji label is hidden on small phones).
 
 ### Layout
 - **Topbar** (fixed): logo, search input, Zulu clock, theme toggle.
@@ -28,7 +34,7 @@ No build tools, frameworks, or npm. Open `index.html` by double-clicking.
 - No `#hash` routing; purely JS-driven.
 
 ### Shelf (3D curved bookshelf)
-- 10 book buttons split across two `.shelf-arc` rows (top: 5, bottom: 5) inside a `.shelf-scene` wrapper.
+- 7 book buttons split across two `.shelf-arc` rows (top: 4, bottom: 3) inside a `.shelf-scene` wrapper.
 - Each row has a `.shelf-rail` (decorative wooden ledge) and a `.shelf-grid[data-row]` with books arranged in a curved arc via per-child `rotateY` + `translateZ` transforms.
 - Each book has three sub-elements: `.shelf-book-spine` (left 3D edge), `.shelf-book-cover` (front face with title/tag), `.shelf-book-edge` (right page-edge).
 - Section colors (international=blue, primary=gold, casr=green, mos=crimson, supporting=purple) applied to cover + spine via `data-section`.
@@ -57,9 +63,22 @@ No build tools, frameworks, or npm. Open `index.html` by double-clicking.
 - Tracks: book opens, accordion opens, and external link clicks.
 - Rendered as pill buttons on home view.
 
+### Mobile responsiveness
+- Three breakpoints: 1024px (tablet), 768px (mobile), 480px (small phone).
+- Accordion items wrap on narrow screens; section headers and fonts scale down.
+- Shelf tabs left-align with horizontal scroll on mobile.
+- Search dropdown scales down; section badges hidden on mobile.
+- Filter chips scroll horizontally with smaller sizing.
+- Theme toggle stays visible on all sizes; emoji label hidden on small phones.
+
 ### External dependencies
 - Google Fonts: Outfit (body) + JetBrains Mono (code/clock).
 - No other external resources.
+
+## Deployment
+- **GitHub repo**: https://github.com/cnabarrier/Digital-Index
+- **Live site**: https://cnabarrier.github.io/Digital-Index/ (GitHub Pages, served from `master` branch root)
+- Push to `master` auto-deploys to GitHub Pages (takes ~1 minute).
 
 ## Key conventions
 - All JS functions are global (no modules). Events are bound via delegation in an init block at the end of `app.js` — no inline `onclick` in HTML.
