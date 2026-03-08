@@ -1,0 +1,12 @@
+# Backup / original monolithic files
+digital-index.html
+digital-index - ORG.html
+digital-index - ORG2_2026-03-01.html
+
+# Claude Code local settings
+.claude/settings.local.json
+.claude/projects/
+
+# OS files
+Thumbs.db
+.DS_Store
